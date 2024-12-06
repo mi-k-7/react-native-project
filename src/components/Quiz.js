@@ -8,7 +8,7 @@ import Page4 from './Page3,4/Page4';
 import Page5 from './Page5,6/Page5';
 import Page6 from './Page5,6/Page6';
 import Page7 from './Intro,7/Page7';
-import Outro from './Intro,7/Outro';
+import Outro from './Page5,6/Outro';
 
 const Container = styled.View`
   flex: 1;
