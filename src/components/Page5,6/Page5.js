@@ -9,7 +9,7 @@ const Page5 = ({ next, back }) => {
         <Box>
           <Question56 
             bigQuestion="앞서 기억해 둔 세계 8대 건강식품과 효능을 적어보세요."
-            img='건강식품효능'
+            img1={require('../../../assets/Page5-건강식품효능.jpg')}
             notice="세계 8대 건강식품과 효능을 기억해 주세요."
           />
         </Box>

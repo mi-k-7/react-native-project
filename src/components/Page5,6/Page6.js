@@ -3,6 +3,7 @@ import { Container, QuestionContainer, Box, ButtonContainer, Button, ButtonText 
 import Question56 from './Question56';
 
 const Page6 = ({ next, back }) => {
+  
   return (
     <Container>
       <QuestionContainer>
@@ -13,10 +14,12 @@ const Page6 = ({ next, back }) => {
 
           <Question56 
             smallQuestion='1. 다음 부위에 효능이 있는 건강식품의 이름은 무엇인가요?'
+            img2={require('../../../assets/Page6-효능1.jpg')}
           />
 
           <Question56 
             smallQuestion='2. 다음 부위에 효능이 있는 건강식품의 이름은 무엇인가요?'
+            img2={require('../../../assets/Page6-효능2.jpg')}
           />
 
           <Question56 
