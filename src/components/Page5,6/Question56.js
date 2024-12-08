@@ -28,18 +28,18 @@ const Container = styled.View`
 `;
 
 const Question56 = (props) => {
-    const Answer = Array.from({length: 8});
+    const { bigQuestion, smallQuestion, img1, Answer, updateUserAnswer } = props;
 
     return (
         <View>
-            <QuestionText1>{props.bigQuestion}</QuestionText1>
-            <QuestionText2>{props.smallQuestion}</QuestionText2>
+            <QuestionText1>{bigQuestion}</QuestionText1>
+            <QuestionText2>{smallQuestion}</QuestionText2>
 
             {/* 스타일 깔끔하게 수정하기 */}
             <Container>
-                {props.img1 && (
+                {img1 && (
                     <>
-                        <Image source={props.img1} />
+                        <Image source={img1} />
                         <View style={{ marginTop: -60 }}>
                             {Answer.map((_, index) => (
                                     <TextInput
@@ -47,6 +47,7 @@ const Question56 = (props) => {
                                         placeholder="건강식품: 효능"
                                         returnKeyType="done" // 엔터키 done 변경
                                         style={{ width: 120, height: 30, margin: 5, padding: 1, textAlign: 'center', borderRadius: 10, backgroundColor: 'pink'}}
+                                        onChangeText={(text) => updateUserAnswer(text, index)}
                                     />
                             ))}
                         </View>
