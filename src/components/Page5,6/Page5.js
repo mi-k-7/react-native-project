@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, QuestionContainer, Box, ButtonContainer, Button, ButtonText } from '../../styles';
 import Question56 from './Question56';
+import { Alert } from 'react-native';
 
 const Page5 = ({ next, back }) => {
   const [userAnswer, setUserAnswer] = useState(Array(8).fill({ food: "", effect: "" }));
@@ -27,11 +28,11 @@ const Page5 = ({ next, back }) => {
       answer.food.replace(/\s+/g, "") === answerInfo[index].food.replace(/\s+/g, "") && answer.effect.replace(/\s+/g, "") === answerInfo[index].effect.replace(/\s+/g, "")
     );
 
-    if (isCorrect) {
-        alert("정답입니다!");
+    if (!isCorrect) {
+      Alert.alert("😊", "정답입니다!");
         setTimeout(next, 1500);
       } else {
-      alert("오답입니다. 다시 풀어보세요!");
+      Alert.alert("😢", "오답입니다. 다시 풀어보세요!");
     }
   };
 
@@ -42,7 +43,7 @@ const Page5 = ({ next, back }) => {
           <Question56 
             bigQuestion="앞서 기억해 둔 세계 8대 건강식품과 효능을 적어보세요."
             img1={require('../../../assets/Page5-건강식품효능.jpg')}
-            notice="세계 8대 건강식품과 효능을 기억해 주세요."
+            notice="🗓️세계 8대 건강식품과 효능을 기억해 주세요."
             updateUserAnswer={updateUserAnswer}
             answerInfo={answerInfo}
           />
