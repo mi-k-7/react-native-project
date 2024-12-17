@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, QuestionContainer, Box, ButtonContainer, Button, ButtonText } from '../../styles';
 import Question56 from './Question56';
+import { Alert } from 'react-native';
 
 const Page6 = ({ next, back }) => {
   const [userAnswer1, setUserAnswer1] = useState('');
@@ -27,13 +28,14 @@ const Page6 = ({ next, back }) => {
     const isCorrect =
       userAnswer1 === answerInfo[1][1] &&
       userAnswer2 === answerInfo[2][0] &&
+      answerInfo3Correct.length === userAnswer3.length &&
       answerInfo3Correct.every((correct) => userAnswer3.includes(correct));
 
     if (isCorrect) {
-      alert("정답입니다!");
+      Alert.alert("😊", "정답입니다!");
       setTimeout(next, 1500);
     } else {
-      alert("오답입니다. 다시 풀어보세요!");
+      Alert.alert("😢", "오답입니다. 다시 풀어보세요!");
     }
   };
 
