@@ -28,7 +28,7 @@ const Page5 = ({ next, back }) => {
       answer.food.replace(/\s+/g, "") === answerInfo[index].food.replace(/\s+/g, "") && answer.effect.replace(/\s+/g, "") === answerInfo[index].effect.replace(/\s+/g, "")
     );
 
-    if (!isCorrect) {
+    if (isCorrect) {
       Alert.alert("😊", "정답입니다!");
         setTimeout(next, 1500);
       } else {
