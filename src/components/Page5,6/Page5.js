@@ -3,7 +3,7 @@ import { Container, QuestionContainer, Box, ButtonContainer, Button, ButtonText 
 import Question56 from './Question56';
 
 const Page5 = ({ next, back }) => {
-  const [userAnswer, setUserAnswer] = useState(Array(Array.from({ length: 8 }).length).fill({ food: "", effect: "" }));
+  const [userAnswer, setUserAnswer] = useState(Array(8).fill({ food: "", effect: "" }));
 
   const answerInfo = [
       { food: "브로콜리", effect: "눈 피로 감소" },
@@ -16,18 +16,18 @@ const Page5 = ({ next, back }) => {
       { food: "토마토", effect: "골다공증, 치매 예방" },
   ];
 
-  const updateUserAnswer = (key, value, index) => {
+  const updateUserAnswer = (name, value, index) => {
     const update = [...userAnswer];
-    update[index] = { ...update[index], [key]: value };
+    update[index] = { ...update[index], [name]: value };
     setUserAnswer(update);
   };
 
   const checkUserAnswer = () => {
-    const isCorrect = userAnswer.every(
-      (answer, index) => answer.food === answerInfo[index].food && answer.effect === answerInfo[index].effect
+    const isCorrect = userAnswer.every((answer, index) =>
+      answer.food.replace(/\s+/g, "") === answerInfo[index].food.replace(/\s+/g, "") && answer.effect.replace(/\s+/g, "") === answerInfo[index].effect.replace(/\s+/g, "")
     );
 
-    if (!isCorrect) { // 수정
+    if (isCorrect) {
         alert("정답입니다!");
         setTimeout(next, 1500);
       } else {

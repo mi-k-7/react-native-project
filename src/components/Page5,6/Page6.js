@@ -7,49 +7,27 @@ const Page6 = ({ next, back }) => {
   const [userAnswer2, setUserAnswer2] = useState('');
   const [userAnswer3, setUserAnswer3] = useState([]);
 
-  const answerInfo1 = [
-    { num: 1, food: "브로콜리" },
-    { num: 2, food: "마늘" },
-    { num: 3, food: "블루베리" },
-    { num: 4, food: "연어" },
-  ];
-  const answerInfo2 = [
-    { num: 1, food: "귀리" },
-    { num: 2, food: "시금치" },
-    { num: 3, food: "녹차" },
-    { num: 4, food: "토마토" },
-  ];
-  const answerInfo3 = [
-    { num: 1, food: "귀리" },
-    { num: 2, food: "블루베리" },
-    { num: 3, food: "사과" },
-    { num: 4, food: "토마토" },
-    { num: 5, food: "참치" },
-    { num: 6, food: "연어" },
-    { num: 7, food: "녹차" },
-    { num: 8, food: "마늘" },
-    { num: 9, food: "시금치" },
-    { num: 10, food: "브로콜리" },
-  ];
-
+  const answerInfo = {
+    1: ["브로콜리", "마늘", "블루베리", "연어"],
+    2: ["귀리", "시금치", "녹차", "토마토"],
+    3: ["귀리", "블루베리", "사과", "토마토", "참치", "연어", "녹차", "마늘", "시금치", "브로콜리"],
+  };
   const answerInfo3Correct = ["귀리", "블루베리", "토마토", "연어", "녹차", "마늘", "시금치", "브로콜리"];
 
   const updateUserAnswer1 = (food) => setUserAnswer1(food);
   const updateUserAnswer2 = (food) => setUserAnswer2(food);
   const updateUserAnswer3 = (food) => {
     setUserAnswer3((prevAnswer3) => {
-      const updatedAnswer3 = prevAnswer3.includes(food)
-        ? prevAnswer3.filter((item) => item !== food)  // 이미 선택된 항목이라면 제거
-        : [...prevAnswer3, food];  // 아니면 추가
-      return updatedAnswer3;
+      const updateAnswer3 = prevAnswer3.includes(food) ? prevAnswer3.filter((item) => item !== food) : [...prevAnswer3, food];
+      return updateAnswer3;
     });
   };
 
   const checkUserAnswer = () => {
     const isCorrect =
-      userAnswer1 === answerInfo1[1].food &&
-      userAnswer2 === answerInfo2[0].food &&
-      answerInfo3Correct.every((correctFood) => userAnswer3.includes(correctFood));
+      userAnswer1 === answerInfo[1][1] &&
+      userAnswer2 === answerInfo[2][0] &&
+      answerInfo3Correct.every((correct) => userAnswer3.includes(correct));
 
     if (isCorrect) {
       alert("정답입니다!");
@@ -70,24 +48,24 @@ const Page6 = ({ next, back }) => {
           <Question56 
             smallQuestion="1. 다음 부위에 효능이 있는 건강식품의 이름은 무엇인가요?"
             img2={require('../../../assets/Page6-효능1.jpg')}
-            answerInfo={answerInfo1}
-            userAnswer={userAnswer1}
             updateUserAnswer={updateUserAnswer1}
+            answerInfo={answerInfo[1]}
+            userAnswer={userAnswer1}
           />
           
           <Question56 
             smallQuestion="2. 다음 부위에 효능이 있는 건강식품의 이름은 무엇인가요?"
             img2={require('../../../assets/Page6-효능2.jpg')}
-            answerInfo={answerInfo2}
-            userAnswer={userAnswer2}
             updateUserAnswer={updateUserAnswer2}
+            answerInfo={answerInfo[2]}
+            userAnswer={userAnswer2}
           />
 
           <Question56 
             smallQuestion="3. 세계 8대 건강식품의 이름에 동그라미 하세요."
-            answerInfo={answerInfo3}
-            userAnswer={userAnswer3}
             updateUserAnswer={updateUserAnswer3}
+            answerInfo={answerInfo[3]}
+            userAnswer={userAnswer3}
           />
         </Box>
       </QuestionContainer>
