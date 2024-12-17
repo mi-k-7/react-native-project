@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, QuestionContainer, Box, ButtonContainer, Button, ButtonText } from '../../styles';
 import styled from 'styled-components/native';
-import { View, Text } from 'react-native';
 
 const MentBox = styled.View`
   flex: 1;
@@ -19,8 +18,7 @@ const Title2 = styled.Text`
   font-weight: 700;
 `;
 
-
-const Outro = ({ next, back }) => {
+const Outro = ({ next }) => {
   return (
     <Container>
       <QuestionContainer>
@@ -34,7 +32,6 @@ const Outro = ({ next, back }) => {
       </QuestionContainer>
 
       <ButtonContainer>
-        {/* <Button onPress={back}><ButtonText>이전</ButtonText></Button> */}
         <Button onPress={next}><ButtonText>처음으로</ButtonText></Button>
       </ButtonContainer>
     </Container>
